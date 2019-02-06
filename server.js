@@ -30,11 +30,11 @@ mongoose.connect(dbURI);
 
 const db = mongoose.connection;
 
-db.on("error", function(error) {
+db.on("error", (error) => {
     console.log("Mongoose Error: ", error);
 });
 
-db.once("open", function() {
+db.once("open", () => {
     console.log("Mongoose connection successful.");
     app.listen(PORT, function() {
         console.log("App running on port" + PORT);

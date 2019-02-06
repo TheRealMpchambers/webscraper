@@ -6,7 +6,7 @@ const express = require('express'),
       cheerio = require('cheerio'),
       Article = require('../../models/article')
 
-router.get('/', function(req, res) {
+router.get('/', (req, res) => {
     res.status(200).send('<a href=\'/api/articles/\'>articles</a>');
 });
 

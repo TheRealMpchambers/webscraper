@@ -4,7 +4,7 @@ const express = require('express'),
       router = express.Router(),
       Article = require('../models/article');
 
-router.get('/', function(req, res) {
+router.get('/', (req, res) => {
     Article
         .find({})
         .where('saved').equals(false)
@@ -27,7 +27,7 @@ router.get('/', function(req, res) {
         });
 });
 
-router.get('/saved', function(req, res) {
+router.get('/saved', (req, res) => {
     Article
         .find({})
         .where('saved').equals(true)
