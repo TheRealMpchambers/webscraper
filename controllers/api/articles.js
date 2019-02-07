@@ -4,7 +4,8 @@ const express = require('express'),
       router = express.Router(),
       request = require('request'),
       cheerio = require('cheerio'),
-      Article = require('../../models/article')
+      Article = require('../../models/article'),
+      Note = require('../../models/note');
 
 router.get('/', function(req, res) {
     Article
@@ -23,6 +24,7 @@ router.get('/saved', function(req, res) {
     Article
         .find({})
         .where('saved').equals(true)
+        .populate('notes')
         .where('deleted').equals(false)
         .exec(function(error, docs) {
             if (error) {
