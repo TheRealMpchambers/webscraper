@@ -8,7 +8,7 @@ const express = require('express'),
       methodOverride = require('method-override');
 
 const PORT = process.env.PORT || 3000;
-let app = express();
+var app = express();
 
 app
     .use(bodyParser.json())
